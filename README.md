@@ -3,8 +3,6 @@
 > **Cuoc thi:** VIBE-CODING 2026 - FPT Polytechnic  
 > **De bai:** De so 10 - Kiem tra & Goi y Ten thuong hieu + Ten mien  
 > **Doi thi:** Nhom XSon  
-> **Link Demo Online:** [Dan link Vercel / Netlify / Cloud Run cua ban vao day]  
-> **Link Video Demo (<= 02 phut):** [Dan link Video Google Drive / YouTube cua ban vao day]
 
 ---
 
@@ -58,7 +56,7 @@ Khi khởi nghiệp online hoặc ra mắt nhãn hàng mới, nhân sự phụ t
 
 ## 5. Hướng dẫn cài đặt & Cách chạy
 ### Cách 1: Truy cập bản chạy trực tuyến (Online Demo)
-- Mở trực tiếp đường dẫn: `[Dán link Online Demo vào đây]`
+- Mở trực tiếp đường dẫn: (https://yazfboy.github.io/XSon-AI/)
 
 ### Cách 2: Chạy trực tiếp từ Source ZIP tại máy (Local)
 Yêu cầu máy tính đã cài đặt **Node.js** (phiên bản 18+):
