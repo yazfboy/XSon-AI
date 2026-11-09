@@ -1,0 +1,6 @@
+{
+  "name": "BrandVibe AI — Thẩm định Thương hiệu & Tên miền",
+  "description": "Hệ thống thẩm định thương hiệu, kiểm tra tên miền & khởi tạo ngôn ngữ tiếp thị dựa trên nghiên cứu ngôn ngữ học và tâm lý học (VIBE-CODING 2026 - Đề số 10).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+    color: #0F172A;
+    overflow-x: hidden;
+    selection-background-color: rgba(79, 70, 229, 0.16);
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Luxury Light Mode Surfaces & Technical Hairlines (Apple / Stripe / Linear Light Aesthetic) */
+.obsidian-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 12px 32px -8px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.35s var(--ease-out-expo), box-shadow 0.35s var(--ease-out-expo);
+}
+
+.obsidian-subcard {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 14px -4px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.3s var(--ease-out-expo), background-color 0.3s var(--ease-out-expo);
+}
+
+/* 3D Perspective Stage for Scroll-Triggered Cards */
+.stage-3d-perspective {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Stage 2: Shimmer Sweep Effect on Safety Status Header (Light Mode) */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+.shimmer-sweep-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-sweep-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.75),
+    rgba(79, 70, 229, 0.14),
+    transparent
+  );
+  animation: shimmerSweep 3.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Stage 3: Animated Glowing Border for Best Domain Card (Light Mode) */
+@keyframes crownBorderGlow {
+  0%, 100% {
+    box-shadow: 0 14px 34px -10px rgba(217, 119, 6, 0.18), 0 0 0 1.5px rgba(245, 158, 11, 0.65);
+  }
+  50% {
+    box-shadow: 0 16px 40px -8px rgba(5, 150, 105, 0.22), 0 0 0 2px rgba(16, 185, 129, 0.75);
+  }
+}
+
+.crowned-glow-border {
+  animation: crownBorderGlow 3.4s ease-in-out infinite;
+}
+
+/* Radial Cursor Spotlight & 3D Tilt for Domain Variant Cards on White Surface */
+.spotlight-tilt-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  position: relative;
+  transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(0);
+  transition: transform 0.22s var(--ease-out-expo), border-color 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+  will-change: transform, opacity;
+}
+
+.spotlight-tilt-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    460px circle at var(--mouse-x) var(--mouse-y),
+    rgba(79, 70, 229, 0.08),
+    rgba(5, 150, 105, 0.05) 45%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out-expo);
+  z-index: 0;
+}
+
+.spotlight-tilt-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--mouse-x) var(--mouse-y),
+    rgba(79, 70, 229, 0.55),
+    rgba(5, 150, 105, 0.3) 45%,
+    transparent 75%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out-expo);
+  z-index: 1;
+}
+
+.spotlight-tilt-card:hover::before,
+.spotlight-tilt-card:hover::after {
+  opacity: 1;
+}
+
+/* 3D Isometric Exploded Stage */
+.iso-stage-perspective {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.iso-layer-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: box-shadow 0.45s var(--ease-out-expo), border-color 0.45s var(--ease-out-expo), background-color 0.45s var(--ease-out-expo);
+}
+
+/* Clean subtle scrollbars for Luxury Light UI */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
